@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Mubarak, My Love</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            max-width: 400px;
+            position: relative;
+            animation: fadeIn 2s ease-in;
+        }
+
+        h1 {
+            color: #f1c40f;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+        }
+
+        .heart {
+            color: #e74c3c;
+            font-size: 50px;
+            animation: pulse 1.5s infinite;
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            color: #ecf0f1;
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-style: italic;
+            color: #f1c40f;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating Stars Decor */
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: twinkle var(--duration) infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        for (let i = 0; i < 50; i++) {
+            let star = document.createElement('div');
+            star.className = 'star';
+            let size = Math.random() * 3 + 'px';
+            star.style.width = size;
+            star.style.height = size;
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+            document.body.appendChild(star);
+        }
+    </script>
+
+    <div class="card">
+        <h1>Eid Mubarak</h1>
+        <div class="heart">❤</div>
+        <p>
+            To the one who makes every day feel like a celebration,<br><br>
+            As the moon shines bright tonight, my only wish is to have you by my side. 
+            May this Eid bring us closer, filling our lives with endless joy, peace, and 
+            the kind of love that lasts forever.
+        </p>
+        <div class="signature">
+            Yours forever and always.
+        </div>
+    </div>
+
+</body>
+</html>
