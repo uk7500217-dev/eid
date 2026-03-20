@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eid Mubarak, My Love</title>
+    <title>For Sakina</title>
     <style>
+        :root {
+            --gold: #f1c40f;
+            --deep-royal: #1a1a2e;
+            --accent-pink: #ff75a0;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -12,107 +18,160 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             color: #fff;
             overflow: hidden;
         }
 
-        .card {
+        /* Initial View */
+        #portal {
+            text-align: center;
+            transition: all 1s ease;
+        }
+
+        .heart-loader {
+            font-size: 60px;
+            color: var(--accent-pink);
+            margin-bottom: 20px;
+            animation: heartbeat 1.2s infinite;
+        }
+
+        .sweet-btn {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: all 0.4s;
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.2);
+        }
+
+        .sweet-btn:hover {
+            background: var(--gold);
+            color: #000;
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(241, 196, 15, 0.5);
+        }
+
+        /* The Card */
+        #eid-card {
+            display: none;
+            max-width: 450px;
+            width: 85%;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
             padding: 40px;
-            border-radius: 20px;
+            border-radius: 25px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            max-width: 400px;
-            position: relative;
-            animation: fadeIn 2s ease-in;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .sakina-title {
+            color: var(--gold);
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
         }
 
         h1 {
-            color: #f1c40f;
             font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+            margin: 0;
+            color: #fff;
+            font-family: 'Georgia', serif;
         }
 
-        .heart {
-            color: #e74c3c;
-            font-size: 50px;
-            animation: pulse 1.5s infinite;
-            display: inline-block;
-            margin: 20px 0;
+        .eid-span {
+            color: var(--gold);
         }
 
-        p {
-            line-height: 1.6;
-            font-size: 1.1rem;
-            color: #ecf0f1;
+        .message-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin: 30px 0;
+            font-style: italic;
+            color: #e0e0e0;
         }
 
         .signature {
-            margin-top: 30px;
-            font-style: italic;
-            color: #f1c40f;
+            font-size: 1.3rem;
+            color: var(--accent-pink);
+            margin-top: 20px;
         }
 
-        @keyframes pulse {
+        /* Animations */
+        @keyframes heartbeat {
             0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+            15% { transform: scale(1.25); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+            60% { transform: scale(1); }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
-        /* Floating Stars Decor */
-        .star {
+        /* Background Moon & Stars */
+        .moon {
             position: absolute;
-            background: white;
+            top: 50px;
+            right: 50px;
+            width: 80px;
+            height: 80px;
+            background: #f1c40f;
             border-radius: 50%;
-            opacity: 0.5;
-            animation: twinkle var(--duration) infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+            box-shadow: 0 0 40px rgba(241, 196, 15, 0.4);
+            z-index: -1;
         }
     </style>
 </head>
 <body>
 
-    <script>
-        for (let i = 0; i < 50; i++) {
-            let star = document.createElement('div');
-            star.className = 'star';
-            let size = Math.random() * 3 + 'px';
-            star.style.width = size;
-            star.style.height = size;
-            star.style.top = Math.random() * 100 + 'vh';
-            star.style.left = Math.random() * 100 + 'vw';
-            star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
-            document.body.appendChild(star);
-        }
-    </script>
+    <div class="moon"></div>
 
-    <div class="card">
-        <h1>Eid Mubarak</h1>
-        <div class="heart">❤</div>
-        <p>
-            To the one who makes every day feel like a celebration,<br><br>
-            As the moon shines bright tonight, my only wish is to have you by my side. 
-            May this Eid bring us closer, filling our lives with endless joy, peace, and 
-            the kind of love that lasts forever.
+    <div id="portal">
+        <div class="heart-loader">❤️</div>
+        <button class="sweet-btn" onclick="revealCard()">
+            A little piece of my heart for you...
+        </button>
+    </div>
+
+    <div id="eid-card">
+        <div class="sakina-title">Dearest Sakina</div>
+        <h1>Eid Mubarak, <span class="eid-span">Sakina</span>!</h1>
+        
+        <p class="message-body">
+            "My Eid moon is right here, in the way you smile. 
+            On this beautiful day, I just wanted to tell you that you are my favorite 
+            blessing. Every prayer I make feels more beautiful because you are in my life. 
+            May this Eid bring us closer than ever before."
         </p>
+
         <div class="signature">
-            Yours forever and always.
+            Forever Yours ❤️
         </div>
     </div>
+
+    <script>
+        function revealCard() {
+            const portal = document.getElementById('portal');
+            const card = document.getElementById('eid-card');
+            
+            portal.style.opacity = '0';
+            setTimeout(() => {
+                portal.style.display = 'none';
+                card.style.display = 'block';
+            }, 600);
+        }
+    </script>
 
 </body>
 </html>
